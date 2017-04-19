@@ -59,6 +59,12 @@ public:
 	void remove_all();
 
 	float get(int position) ;
+	
+	int get(double dataIn) ;
+	
+        double get_average();
+
+	void reverse();
 
 
 };
