@@ -110,6 +110,58 @@ float LinkedList::get(int position){
 		tmp = nullptr;
 		delete tmp;
 }
+
+	/*searches for a given data in a list and returns its position
+	if no match found returns -1*/
+int LinkedList::get(double dataIn) {
+		int pos = 0;
+		node* tmp = head;
+		while (tmp != nullptr) {
+			pos++;
+			if (tmp->data == dataIn) {
+				return pos;
+			}
+			tmp = tmp->next;
+		}
+		delete tmp;
+		return -1;
+	}
+/*get the average value of a linked list data */
+double LinkedList::get_average() {
+		double sum = 0;
+		int size=0;
+		node* tmp = head;
+		while (tmp!=nullptr)
+		{
+			size++;
+			sum += tmp->data;
+			tmp = tmp->next;
+		}
+		if (size == 0) {
+			cerr<<"Empty Linked List \n";
+		}
+		delete tmp;
+		return (double)sum / size;
+
+	}
+
+/*reverses a linked list*/
+void LinkedList::reverse() {
+		vector<float> v;
+		node* tmp = head;
+		while (tmp != nullptr)
+		{
+			v.push_back(tmp->data);
+			tmp = tmp->next;
+		}
+		tmp = head;
+		for ( int i = (v.size() - 1); i >= 0; --i) {
+			tmp->data = v[i];
+			tmp = tmp->next;
+		}
+		delete tmp;
+	}
+
 void LinkedList::remove_first(){
 		if (head == nullptr) {
 			return;
